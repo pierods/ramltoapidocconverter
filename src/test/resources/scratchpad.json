@@ -1,0 +1,82 @@
+{
+  "name": "Hello World Application service",
+  "apidoc": {
+    "version": "0.11.23"
+  },
+  "base_url": "http://localhost:8080",
+  "description": "[org.raml.model.DocumentationItem@1e127982]",
+  "models": {
+    "helloes": {
+      "description": "Hello World Greeting",
+      "fields": [
+        {
+          "name": "greeting",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    "anothermodel": {
+      "description": "Hello World Greeting",
+      "fields": [
+        {
+          "name": "greeting",
+          "type": "string",
+          "required": true
+        }
+      ]
+    }
+  },
+  "resources": {
+    "helloes": {
+      "path": "/helloes",
+      "description": "hello resource description",
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/:personId",
+          "description": "ciao",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "type": "helloes",
+              "description": "ciao"
+            }
+          }
+        },
+        {
+          "method": "GET",
+          "path": "/:personId/subhello",
+          "description": "ciao",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "type": "helloes",
+              "description": "ciao"
+            }
+          }
+        },
+        {
+          "method": "GET",
+          "description": "description of GET",
+          "parameters": [
+            {
+              "name": "author",
+              "type": "STRING",
+              "description": "An authors full name",
+              "required": false,
+              "example": "Mary Roach"
+            }
+          ],
+          "responses": {
+            "200": {
+              "type": "helloes",
+              "description": "description of 200"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+

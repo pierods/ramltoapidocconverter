@@ -1,0 +1,77 @@
+#%RAML 0.8
+---
+title: Hello World Application service
+baseUri: http://localhost:8080
+version: 0.0.1
+documentation:
+  - title: Hello World Service
+    content: |
+      A hello world service
+
+schemas:
+ - helloes: |
+    {
+      "$schema": "http://json-schema.org/schema",
+      "type": "object",
+      "description": "Hello World Greeting",
+      "properties": {
+        "greeting":  { "type": "string" }
+      },
+      "required": [ "greeting" ]
+    }
+
+ - anothermodel: |
+    {
+      "$schema": "http://json-schema.org/schema",
+      "type": "object",
+      "description": "Hello World Greeting",
+      "properties": {
+        "greeting":  { "type": "string" }
+      },
+      "required": [ "greeting" ]
+    }
+
+/helloes:
+  description: hello resource description
+  # methods
+  get:
+    description: description of GET
+    queryParameters:
+     author:
+       displayName: Author
+       type: string
+       description: An authors full name
+       example: Mary Roach
+       required: false
+    responses:
+      200:
+        description: description of 200
+        body:
+          application/json:
+            example: |
+              {
+                "greeting":"Hello World"
+              }
+            schema: helloes
+  /{personId}:
+    description: ciao
+    get:
+      description: ciao
+      responses:
+        200:
+          description: ciao
+          body:
+            application/json:
+              schema: helloes
+    /subhello:
+      description: ciao
+      get:
+        description: ciao
+        responses:
+          200:
+            description: ciao
+            body:
+              application/json:
+                schema: helloes
+
+
